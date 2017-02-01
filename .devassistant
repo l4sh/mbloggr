@@ -1,0 +1,21 @@
+dependencies:
+- rpm:
+  - python3
+- if $venv and not $py3:
+  - rpm:
+    - python-virtualenv
+- if not $venv:
+  - rpm:
+    - python${py3}-django
+- rpm:
+  - docker-io
+devassistant_version: 0.11.2
+docker_port_exposed: 8000
+original_kwargs:
+  docker: true
+  name: /home/l4sh/Projects/l4sh/mbloggr
+  py3: 3
+  venv: venv
+project_type:
+- python
+- django
